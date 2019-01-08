@@ -76,7 +76,7 @@ public class example1 {
         net.addBiLink("f4", "g1");
 
         Node node3 = new Node("node3");
-        node3.addRule("/a/b/*", "ANY", "h2");
+        node3.addRule("/a/b/y/*", "ANY", "h2");
         node3.addProviderName(new Name("/b/c/*"));
         
         net.addFace2Node("h1", node3);

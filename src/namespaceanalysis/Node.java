@@ -14,12 +14,18 @@ public class Node {
     private String nodeID;
     private List<Name> providerNames;
     private Set<String> visitedNames;
+    private Set<String> arrivingVisitedNames;
+    private Set<String> leavingVisitedNames;
+   
 
     public Node(String nodeID) {
         this.rules = rules = new ArrayList<>();
         this.nodeID = nodeID;
         this.providerNames = new ArrayList<>();
         this.visitedNames = new HashSet<>();
+        this.arrivingVisitedNames = new HashSet<>();
+        this.leavingVisitedNames = new HashSet<>();
+        
     }
         
     public Node(List<Rule> rules, String nodeID) {
@@ -27,6 +33,9 @@ public class Node {
         this.nodeID = nodeID;
         this.providerNames = new ArrayList<>();
         this.visitedNames = new HashSet<>();
+        this.arrivingVisitedNames = new HashSet<>();
+        this.leavingVisitedNames = new HashSet<>();
+
     }
 
     public List<Rule> getRules() {
@@ -110,4 +119,17 @@ public class Node {
     public void addVisitedName(String name){
         visitedNames.add(name);
     }
+
+    public Set<String> getArrivingVisitedNames() {
+        return arrivingVisitedNames;
+    }
+
+    public void setArrivingVisitedNames(Set<String> visitedNames) {
+        this.arrivingVisitedNames = visitedNames;
+    }
+    
+    public void addArrivingVisitedName(String name){
+        arrivingVisitedNames.add(name);
+    }    
+    
 }

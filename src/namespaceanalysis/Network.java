@@ -57,9 +57,16 @@ public class Network {
             if(links.containsKey(l_face)){
                 for(String a_face:links.get(l_face)){
                     PacketFace a_packetFace = new PacketFace(l_packet, a_face);
-                    if(a_packetFace.getPacket().getName().getComponentByIndex(0).length()>0){
+                    //Loop Detection ...................
+                    if(face2Node.get(a_face).getArrivingVisitedNames().contains(a_packetFace.getPacket().getNameAsString())){
+                        System.out.println("Loop detected!");
+                        break;
+                    }
+                    //...............................
+                    else if(a_packetFace.getPacket().getName().getComponentByIndex(0).length()>0){
                         arrivingPackets.add(a_packetFace);
                         face2Node.get(a_face).addVisitedName(a_packetFace.getPacket().getNameAsString());
+                        face2Node.get(a_face).addArrivingVisitedName(a_packetFace.getPacket().getNameAsString());
                     }
                 }
             }
@@ -75,6 +82,7 @@ public class Network {
         for(PacketFace a_packetFace: arrivingPackets){
             SinglePacket a_packet = a_packetFace.getPacket();
             String a_face = a_packetFace.getFace();
+            temp_pf.add(a_packetFace);
             if(face2Node.containsKey(a_face)){
                 Node node = face2Node.get(a_face);
                 List<PacketFace> l_packets = node.nodeTransfer(a_packetFace);
@@ -85,7 +93,7 @@ public class Network {
                     }
                 }
             }            
-            temp_pf.add(a_packetFace);
+            
         }
         for(PacketFace pf: temp_pf){
             arrivingPackets.remove(pf);
@@ -142,9 +150,11 @@ public class Network {
     }
     
     public void printPacketLists(){
+        //System.out.println("leaving:");
         for(PacketFace pf: leavingPackets){
             System.out.println("\t"+pf.packetFace2String());
         }
+        //System.out.println("arriving:");
         for(PacketFace pf: arrivingPackets){
             System.out.println("\t"+pf.packetFace2String());
         }
