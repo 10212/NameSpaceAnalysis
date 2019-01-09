@@ -73,5 +73,29 @@ public class Name {
         nameSize++;
     }
     
-    
+    public boolean subsetOf(Name name){
+        //returns true if this is a subset of name
+        int i=0;
+        String nameS = "";
+        for(i=0; i<this.nameSize; i++){ 
+            String thisS = this.getComponentByIndex(i);
+            if(i<name.nameSize){
+                nameS = name.getComponentByIndex(i);
+            }
+            else{
+                return false;
+            }
+            if(nameS.equals(thisS) || nameS.equals("?")){
+                continue;
+            }
+            else if(nameS.equals("*")){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        
+        return true;
+    }
 }

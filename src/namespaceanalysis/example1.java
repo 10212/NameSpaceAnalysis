@@ -26,6 +26,11 @@ public class example1 {
         System.out.println(n2.name2String());
         System.out.println(nsa.nameIntersection(n1,n2).name2String());
 
+        
+        Name name1 = new Name("/a/b/c/d/");
+        Name name2 = new Name("/a/b/c/?/*");
+        System.out.println(name1.name2String()+" subsetOf "+ name2.name2String()+ " ? "+ name1.subsetOf(name2));
+
 
         
         System.out.println("---------------");
@@ -35,7 +40,8 @@ public class example1 {
         System.out.println(p2.getName().name2String());
         System.out.println(nsa.singlePacketIntersection(p1,p2).getName().name2String());
         
-
+        
+        
         System.out.println("---------------");   
         String s1 = "/g/b/y/*";
         
