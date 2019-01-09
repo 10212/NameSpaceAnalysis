@@ -50,7 +50,7 @@ public class example1 {
         System.out.println("---------------");   
         Node n = new Node("node1");
         //n.addRule(rule1);
-        n.addRule("/y/c/*", "ANY", "f3");
+        n.addRule("/y/c/*", "ANY", "f4");
         n.addRule("/g/c/*", "ANY", "f3");
         n.addRule("/a/b/y/*", "ANY", "f4");
         List<PacketFace> pf_out_list = n.nodeTransfer(pf1);
@@ -68,6 +68,7 @@ public class example1 {
         Node node2 = new Node("node2");
         node2.addRule("/a/b/*", "ANY", "g2");
         node2.addRule("/c/*", "ANY", "g3");
+        node2.addRule("/y/c/*", "ANY", "g1");
         
         net.addFace2Node("g1", node2);
         net.addFace2Node("g2", node2);
@@ -76,7 +77,7 @@ public class example1 {
         net.addBiLink("f4", "g1");
 
         Node node3 = new Node("node3");
-        node3.addRule("/a/b/y/*", "ANY", "h2");
+        node3.addRule("/a/b/*", "ANY", "g2");
         node3.addProviderName(new Name("/b/c/*"));
         
         net.addFace2Node("h1", node3);
@@ -104,5 +105,7 @@ public class example1 {
         net.printProviderNames();
         
         net.printVisitedNames();
+//        net.printArrivingVisitedNames();
+//       net.printLeavingArrivingVisitedNames();
     }
 }

@@ -97,6 +97,20 @@ public class Node {
         }
     } 
     
+    public void printArrivingVisitedNames(){
+        System.out.print(nodeID+": ");
+        for(String s: arrivingVisitedNames){
+            System.out.print(s+" ");
+        }
+    } 
+    
+    public void printLeavingVisitedNames(){
+        System.out.print(nodeID+": ");
+        for(String s: leavingVisitedNames){
+            System.out.print(s+" ");
+        }
+    } 
+    
     public List<PacketFace> nodeTransfer(PacketFace packetFace_in){// network transfer function
         List <PacketFace> packetFaces_out = new ArrayList<>();
         for(Rule r: rules){

@@ -17,7 +17,7 @@ public class NameSpaceAnalysis {
         int i=0;
         while(true){
             if(name1.getSize()<=i || name2.getSize()<=i){
-                System.out.println("component not extistant");
+                //System.out.println("component not extistant");
                 break;
             }
             else if(name1.getComponentByIndex(i).equals(name2.getComponentByIndex(i))){

@@ -59,8 +59,8 @@ public class Network {
                     PacketFace a_packetFace = new PacketFace(l_packet, a_face);
                     //Loop Detection ...................
                     if(face2Node.get(a_face).getArrivingVisitedNames().contains(a_packetFace.getPacket().getNameAsString())){
-                        System.out.println("Loop detected!");
-                        break;
+                        System.out.println("Loop detected! for "+a_packetFace.getPacket().getNameAsString()+" @ "+face2Node.get(a_face).getNodeID());
+                        continue;
                     }
                     //...............................
                     else if(a_packetFace.getPacket().getName().getComponentByIndex(0).length()>0){
@@ -183,4 +183,29 @@ public class Network {
            }
         }       
     }
+    
+    public void printArrivingVisitedNames(){
+        System.out.println("\nAll Arriving Visited Names at nodes:");
+        Set <String> nodeNames = new HashSet<>();
+        for(Node n: face2Node.values()){
+           if(!nodeNames.contains(n.getNodeID())){ 
+            n.printArrivingVisitedNames();
+            nodeNames.add(n.getNodeID());
+            System.out.println();
+           }
+        }       
+    }
+    
+    public void printLeavingArrivingVisitedNames(){
+        System.out.println("\nAll Leaving Visited Names at nodes:");
+        Set <String> nodeNames = new HashSet<>();
+        for(Node n: face2Node.values()){
+           if(!nodeNames.contains(n.getNodeID())){ 
+            n.printLeavingVisitedNames();
+            nodeNames.add(n.getNodeID());
+            System.out.println();
+           }
+        }       
+    }
+    
 }
