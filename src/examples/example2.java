@@ -1,4 +1,6 @@
-package namespaceanalysis;
+package examples;
+import core.Network;
+import core.SnapshotReader;
 import java.io.IOException;
 import java.util.*;
 

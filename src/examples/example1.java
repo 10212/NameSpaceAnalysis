@@ -3,10 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package namespaceanalysis;
+package examples;
 
 import java.io.IOException;
 import java.util.*;
+import core.Name;
+import core.NameSpaceAnalysis;
+import core.Network;
+import core.Node;
+import core.PacketFace;
+import core.Rule;
+import core.SinglePacket;
 
 /**
  *
