@@ -5,6 +5,7 @@
  */
 package namespaceanalysis;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -13,7 +14,7 @@ import java.util.*;
  */
 public class example1 {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         NameSpaceAnalysis nsa = new NameSpaceAnalysis();
 
         Name n1 = new Name ("/a/b/c/*");
@@ -113,5 +114,9 @@ public class example1 {
         net.printVisitedNames();
 //        net.printArrivingVisitedNames();
 //       net.printLeavingArrivingVisitedNames();
+
+        System.out.println("\nLoops: "+net.getLoops());
+        
+        
     }
 }

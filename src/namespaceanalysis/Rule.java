@@ -77,4 +77,8 @@ public class Rule {
             return result;
         }
     }
+    
+    public void printRule(){
+        System.out.println(packetRule.getNameAsString()+" "+face_in+" "+face_out);
+    }
 }

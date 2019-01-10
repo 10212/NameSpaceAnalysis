@@ -16,12 +16,15 @@ public class Network {
     private Map<String, List<String>> links;
         
     private Map<String, Node> face2Node; // face IDs are unique
+    
+    private int loops; // no. of loops detected
 
     public Network() {
         this.arrivingPackets = new ArrayList<>();
         this.leavingPackets = new ArrayList<>();
         this.links = new HashMap<>();
         this.face2Node = new HashMap<>();
+        this.loops = 0;
     }
 
     public List<PacketFace> getArrivingPackets() {
@@ -48,6 +51,10 @@ public class Network {
     public void setFace2Node(Map<String, Node> face2Node) {
         this.face2Node = face2Node;
     }
+
+    public int getLoops() {
+        return loops;
+    }    
     
     public void topologyTransferUpdates(){ // bring leaving packets to arriving positions
         List<PacketFace> temp_pf = new ArrayList<>();
@@ -60,6 +67,7 @@ public class Network {
                     //Loop Detection ...................
                     if(face2Node.get(a_face).getArrivingVisitedNames().contains(a_packetFace.getPacket().getNameAsString())){
                         System.out.println("Loop detected! for "+a_packetFace.getPacket().getNameAsString()+" @ "+face2Node.get(a_face).getNodeID());
+                        loops++;
                         continue;
                     }
                     //...............................
@@ -136,14 +144,14 @@ public class Network {
     }
     
     public void printArrivingPacketLists(){
-        System.out.println("Arriving Packets:");
+        System.out.println("\nArriving Packets:");
         for(PacketFace pf: arrivingPackets){
             System.out.println("\t"+pf.packetFace2String());
         }
     }
     
     public void printLeavingPacketLists(){
-        System.out.println("Leaving Packets:");
+        System.out.println("\nLeaving Packets:");
         for(PacketFace pf: leavingPackets){
             System.out.println("\t"+pf.packetFace2String());
         }
@@ -159,6 +167,22 @@ public class Network {
             System.out.println("\t"+pf.packetFace2String());
         }
     }
+
+    public void printNodeRules(){
+        System.out.println("\nNode rules:");
+        Set <String> nodeNames = new HashSet<>();
+        for(Node n: face2Node.values()){
+           if(!nodeNames.contains(n.getNodeID())){ 
+            System.out.print(n.getNodeID()+": ");
+            for(Rule r: n.getRules()){
+                r.printRule();
+            }
+            nodeNames.add(n.getNodeID());
+            System.out.println();
+           }
+        }
+    }
+
     
     public void printProviderNames(){
         System.out.println("\nAnnounced Provider Names:");
@@ -208,4 +232,29 @@ public class Network {
         }       
     }
     
+    public void printFace2Node(){
+        System.out.println("\nFace 2 Node Maps:");
+        for(String f1: face2Node.keySet()){
+            System.out.print(f1+":"+face2Node.get(f1).getNodeID()+ ", ");
+        }
+        System.out.print("\n");
+    }
+    
+    
+    public void printLinks(){
+        System.out.println("\nLink adjacency list:");
+        for(String f1: links.keySet()){
+            System.out.println(f1+" -> " +links.get(f1));
+        }
+    }
+    
+    public void printNetworkSummary(){
+        this.printFace2Node();
+        this.printLinks();
+        this.printNodeRules();
+        this.printProviderNames();
+        this.printVisitedNames();
+        this.printArrivingPacketLists();
+        this.printLeavingPacketLists();
+    }
 }
