@@ -13,7 +13,7 @@ public class example2 {
     public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file1.txt");
+        Network net = snapshot.readSnapshotFromFile("file2.txt");
         net.printNetworkSummary();
         
         System.out.println("---------------------------------------");
@@ -29,7 +29,7 @@ public class example2 {
             net.printPacketLists();
             time++;
             System.out.println(time+":");
-            net.topologyTransferUpdates();
+            net.topologyTransferUpdates(0);
             net.printPacketLists();
             time++;
         }
@@ -40,7 +40,7 @@ public class example2 {
         net.printArrivingVisitedNames();
 //       net.printLeavingArrivingVisitedNames();
 
-        System.out.println("\nLoops: "+net.getLoops());
+        //System.out.println("\nLoops: "+net.getLoops());
 
         
         

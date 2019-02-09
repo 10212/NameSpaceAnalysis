@@ -56,7 +56,7 @@ public class Network {
         return loops;
     }    
     
-    public void topologyTransferUpdates(){ // bring leaving packets to arriving positions
+    public void topologyTransferUpdates(int logLoop){ // bring leaving packets to arriving positions
         List<PacketFace> temp_pf = new ArrayList<>();
         for(PacketFace l_packetFace: leavingPackets){
             SinglePacket l_packet = l_packetFace.getPacket();
@@ -66,7 +66,9 @@ public class Network {
                     PacketFace a_packetFace = new PacketFace(l_packet, a_face);
                     //Loop Detection ...................
                     if(face2Node.get(a_face).getArrivingVisitedNames().contains(a_packetFace.getPacket().getNameAsString())){
-                        System.out.println("Loop detected! for "+a_packetFace.getPacket().getNameAsString()+" @ "+face2Node.get(a_face).getNodeID());
+                        if(logLoop==1)
+                            //System.out.println("Loop detected! for "+a_packetFace.getPacket().getNameAsString()+" @ "+face2Node.get(a_face).getNodeID());
+                            System.out.println("\tLoop\t"+a_packetFace.getPacket().getNameAsString()+"\t"+face2Node.get(a_face).getNodeID());                        
                         loops++;
                         continue;
                     }

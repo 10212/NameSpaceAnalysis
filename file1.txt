@@ -3,7 +3,7 @@
 -node	n2	n21	n22	n23
 -node	n3	n31	n32	n33
 -rule	n1	/a/b/*	ANY	n12
--rule	n2	/a/b/*	ANY	n22
+-rule	n2	/a/b/*	ANY	n21
 -link	n12	n21
 -link	n22	n32
 -provider	n3	/a/b/*

@@ -111,7 +111,7 @@ public class example1 {
             net.printPacketLists();
             time++;
             System.out.println(time+":");
-            net.topologyTransferUpdates();
+            net.topologyTransferUpdates(0);
             net.printPacketLists();
             time++;
         }
