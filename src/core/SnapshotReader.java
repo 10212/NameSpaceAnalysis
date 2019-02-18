@@ -10,13 +10,21 @@ public class SnapshotReader {
     
     private Network net;
     private Map <String, Node> nodes;
+    private String fileName;
     
     public SnapshotReader(){
         net = new Network();
         nodes = new HashMap<>();
+        fileName="";
+    }
+
+    public String getFileName() {
+        return fileName;
     }
     
+    
     public Network readSnapshotFromFile(String fileName) throws FileNotFoundException, IOException{
+        this.fileName = fileName;
         FileReader fr = new FileReader(fileName);
         BufferedReader br = new BufferedReader(fr);
         

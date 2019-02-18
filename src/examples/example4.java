@@ -12,7 +12,7 @@ public class example4 { // content reachability analysis
     public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2.txt");
+        Network net = snapshot.readSnapshotFromFile("file2a.txt");
         net.printNetworkSummary();
         
         System.out.println("---------------------------------------");
@@ -45,9 +45,13 @@ public class example4 { // content reachability analysis
         System.out.println("\n--------------------------------------------------------\nCompare ProviderNames and ArrivingVisitedNames:");
 
         //comparison 1
-        System.out.println("\n*****Comparison1: ProvdiderNames < ArrivingVisitedNames? (lack of unassociated incoming packets)");
+        System.out.println("\n*****Comparison1: ProvdiderNames < ArrivingVisitedNames? (lack of full ns coverage)");
         Set <String> nodeNames = new HashSet<>();
         for(Node n: net.getFace2Node().values()){
+            //ignore if node not provider
+            if(n.getProviderNames().isEmpty()){
+                continue;
+            }
            if(!nodeNames.contains(n.getNodeID())){ 
                 System.out.println(n.getNodeID()+" : ");
                 //n.printProviderNames();
@@ -75,6 +79,10 @@ public class example4 { // content reachability analysis
         System.out.println("\n*****Comparison2: ArrivingVisitedNames < ProvdiderNames? (lack of blackholed packets)");
         nodeNames = new HashSet<>();
         for(Node n: net.getFace2Node().values()){
+            //ignore if node not provider
+            if(n.getProviderNames().isEmpty()){
+                continue;
+            }
            if(!nodeNames.contains(n.getNodeID())){ 
                 System.out.println(n.getNodeID()+" : ");
                 //n.printProviderNames();
