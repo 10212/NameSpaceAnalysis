@@ -12,7 +12,8 @@ public class example3 { // for loop detection
         public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file3.txt");
+        Network net = snapshot.readSnapshotFromFile("file2a.txt");
+        String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());
         net.printNetworkSummary();
@@ -28,7 +29,7 @@ public class example3 { // for loop detection
             System.out.println(face2NodeMap.get(injectFace).getNodeID());
             
             snapshot = new SnapshotReader();
-            net = snapshot.readSnapshotFromFile("file3.txt");
+            net = snapshot.readSnapshotFromFile(fname);
             //remove added arriving packets
             net.setArrivingPackets(new ArrayList<PacketFace>());
             
