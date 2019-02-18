@@ -13,7 +13,7 @@ public class example2 {
     public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2.txt");
+        Network net = snapshot.readSnapshotFromFile("file2a.txt");
         net.printNetworkSummary();
         
         System.out.println("---------------------------------------");
