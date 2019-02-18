@@ -54,7 +54,8 @@ public class Network {
 
     public int getLoops() {
         return loops;
-    }    
+    }
+    
     
     public void topologyTransferUpdates(int logLoop){ // bring leaving packets to arriving positions
         List<PacketFace> temp_pf = new ArrayList<>();
@@ -197,6 +198,7 @@ public class Network {
            }
         }
     }
+
     
     public void printVisitedNames(){
         System.out.println("\nAll Visited Names at nodes:");

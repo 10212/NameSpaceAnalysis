@@ -7,5 +7,5 @@
 -link	n12	n21
 -link	n22	n32
 -provider	n3	/a/b/*
--inject	/*	n11
-#-injectAll	/*
+#-inject	/*	n11
+-injectAll	/*
