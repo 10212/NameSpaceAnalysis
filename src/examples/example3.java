@@ -12,7 +12,7 @@ public class example3 { // for loop detection
         public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2a.txt");
+        Network net = snapshot.readSnapshotFromFile("file1b.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());

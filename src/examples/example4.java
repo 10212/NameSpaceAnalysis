@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author MohammadHossein
  */
-public class example4 { // content reachability analysis
+public class example4 { // content reachability analysis; all at once
     
     public static void main(String[] args) throws IOException {
         
