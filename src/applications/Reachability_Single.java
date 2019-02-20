@@ -1,4 +1,4 @@
-package examples;
+package applications;
 import core.*;
 import java.io.IOException;
 import java.util.*;
@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author MohammadHossein
  */
-public class example4 { // content reachability analysis; all at once
+public class Reachability_Single { // content reachability analysis; all at once
     
     public static void main(String[] args) throws IOException {
         

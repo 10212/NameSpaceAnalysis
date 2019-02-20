@@ -8,7 +8,7 @@ package examples;
 import java.io.IOException;
 import java.util.*;
 import core.Name;
-import core.NameSpaceAnalysis;
+import core.Common;
 import core.Network;
 import core.Node;
 import core.PacketFace;
@@ -22,7 +22,7 @@ import core.SinglePacket;
 public class example1 {
     
     public static void main(String[] args) throws IOException {
-        NameSpaceAnalysis nsa = new NameSpaceAnalysis();
+        Common nsa = new Common();
 
         Name n1 = new Name ("/a/b/c/*");
         System.out.println(n1.getComponentByIndex(0));

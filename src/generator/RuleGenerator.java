@@ -1,13 +1,15 @@
-package core;
+package generator;
+import core.Common;
+import core.PacketFace;
 import java.io.*;
 import java.util.*;
 /**
  *
  * @author MohammadHossein
  */
-public class fibProcessor {
+public class RuleGenerator {
     public static void main(String[] args) throws IOException {
-        NameSpaceAnalysis nsa = new NameSpaceAnalysis();
+        Common nsa = new Common();
         FileReader fr = new FileReader("fib1.txt");
         BufferedReader br = new BufferedReader(fr);        
         FileWriter fw = new FileWriter("fib-processed.txt");

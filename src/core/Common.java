@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author MohammadHossein
  */
-public class NameSpaceAnalysis {
+public class Common {
 
     
     public Name nameIntersection (Name name1, Name name2){

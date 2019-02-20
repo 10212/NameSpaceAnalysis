@@ -1,4 +1,4 @@
-package examples;
+package applications;
 
 import core.*;
 import java.io.*;
@@ -8,7 +8,7 @@ import java.util.*;
  *
  * @author MohammadHossein
  */
-public class example3 { // for loop detection
+public class LoopDetection_Full { // for loop detection
         public static void main(String[] args) throws IOException {
         
         SnapshotReader snapshot = new SnapshotReader();

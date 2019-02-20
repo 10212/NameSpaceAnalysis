@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package core;
-import core.NameSpaceAnalysis;
+import core.Common;
 /**
  *
  * @author MohammadHossein
@@ -66,7 +66,7 @@ public class Rule {
     }
     
     public PacketFace matchRule(PacketFace packetFace_in){
-        NameSpaceAnalysis nsa = new NameSpaceAnalysis();
+        Common nsa = new Common();
         if(matchInFace(packetFace_in)){
             SinglePacket packet_out = nsa.singlePacketIntersection(packetFace_in.getPacket(), packetRule);
             PacketFace result = new PacketFace(packet_out, face_out);
