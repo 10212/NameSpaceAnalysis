@@ -10,7 +10,7 @@ import java.util.*;
 public class RuleGenerator {
     public static void main(String[] args) throws IOException {
         Common nsa = new Common();
-        FileReader fr = new FileReader("fib1.txt");
+        FileReader fr = new FileReader("nodesData/uci.txt_processed.txt");
         BufferedReader br = new BufferedReader(fr);        
         FileWriter fw = new FileWriter("fib-processed.txt");
         List<PacketFace> inList = new ArrayList<>();
@@ -30,6 +30,9 @@ public class RuleGenerator {
             int hasSubset = 0;
             for(PacketFace pf2: inList){
                 if(pf1==pf2){
+                    continue;
+                }
+                if(pf1.getPacket().getNameAsString().equals(pf2.getPacket().getNameAsString())){
                     continue;
                 }
                 if(pf2.getPacket().getName().subsetOf(pf1.getPacket().getName())){

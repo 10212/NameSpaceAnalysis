@@ -4,9 +4,12 @@
 -rule	n	/a/!b/*	ANY	n2
 -rule	n	/a/b/!c/*	ANY	n3
 -rule	n	/a/b/c/*	ANY	n2
+-rule	n	/f/d/*	ANY	n2
+-rule	n	/f/d/*	ANY	n3
 -link	n2	m1
 -link	n3	p1
 -provider	m	/a/*
 -provider	m	/a/b/c/*
 -provider	p	/a/b/*
--injectAll	/*
+#-injectAll	/*
+-inject	/*	n1

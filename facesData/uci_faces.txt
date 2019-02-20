@@ -1,0 +1,18 @@
+1	internal://	internal://	local	permanent	point-to-point	n/a 	local-fields 	Never 	0	83069	0	150320684	111333	0	0	7653481
+254	contentstore://	contentstore://	local	permanent	point-to-point	n/a 		Never 	0	0	0	0	8081	0	0	544719
+255	null://	null://	local	permanent	point-to-point	n/a 		Never 	0	0	0	0	0	0	0	0
+256	ether://[01:00:5e:00:17:aa]	dev://eth0	non-local	permanent	multi-access	n/a 		Never 	0	0	0	0	0	0	0	0
+257	fd://25	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	local-fields congestion-marking 	Never 	42761	69943	0	155326021	81021	21813	0	40152325
+258	udp4://224.0.23.170:56363	udp4://128.195.4.36:59513	non-local	permanent	multi-access	n/a 	congestion-marking 	Never 	0	0	0	0	0	0	0	0
+259	udp6://[ff02::1234%eth0]:56363	udp6://[fe80::7a2b:cbff:fe4b:fe5e%eth0]:56374	non-local	permanent	multi-access	n/a 	congestion-marking 	Never 	0	0	0	0	0	0	0	0
+260	udp4://131.179.196.46:6363	udp4://128.195.4.36:6363	non-local	permanent	point-to-point	n/a 	congestion-marking 	Never 	444180	132349	11660	94047020	207734	223299	4432	84115599
+267	udp4://192.172.226.248:6363	udp4://128.195.4.36:6363	non-local	permanent	point-to-point	n/a 	congestion-marking 	Never 	0	0	0	0	150429	0	0	13304761
+269	udp4://128.97.98.7:6363	udp4://128.195.4.36:6363	non-local	permanent	point-to-point	n/a 	congestion-marking 	Never 	0	0	0	0	150429	0	0	13527131
+271	udp4://128.196.203.36:6363	udp4://128.195.4.36:6363	non-local	permanent	point-to-point	n/a 	congestion-marking 	Never 	226459	277705	34078	111608862	367790	106759	2175	76392043
+273	fd://31	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	35446	0	0	1904874	0	14498	0	5979137
+274	fd://35	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	3	0	0	437	0	3	0	1513
+275	fd://36	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	1	2	0	581	2	1	0	869
+276	fd://37	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	local-fields congestion-marking 	Never 	353523	47961	0	58744968	337278	242739	7	172833474
+277	fd://38	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	2	0	0	900	0	2	0	1634
+278	fd://39	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	2	0	0	844	6	2	0	1790
+7500	fd://40	unix:///run/nfd.sock	local	on-demand	point-to-point	n/a 	congestion-marking 	Never 	7	0	0	312	0	0	0	0
