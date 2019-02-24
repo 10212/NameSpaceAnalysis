@@ -13,7 +13,7 @@ public class Reachability_Single { // content reachability analysis; all at once
         long start = System.currentTimeMillis();
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2b.txt");
+        Network net = snapshot.readSnapshotFromFile("grid2.txt");
         if(verbose==1)
             net.printNetworkSummary();
         

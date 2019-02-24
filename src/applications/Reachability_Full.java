@@ -10,11 +10,13 @@ import java.util.*;
  */
 public class Reachability_Full { // reachability check: inject /* one by one
         static int verbose=0;
+        static int allFaces =1;
+
         public static void main(String[] args) throws IOException {
         
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2b.txt");
+        Network net = snapshot.readSnapshotFromFile("grid3.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());
@@ -24,10 +26,17 @@ public class Reachability_Full { // reachability check: inject /* one by one
         }
         //now add inject one by one for each face
         Map <String, Node> face2NodeMap = net.getFace2Node();
+                Set <String> selectFaces;
+        if(allFaces==1)
+            //all faces
+            selectFaces = face2NodeMap.keySet();
+        else
+        //or, get faces from file
+            selectFaces = readFaces("faces.txt");
         
         int instance =1;
 
-        for(String injectFace: face2NodeMap.keySet()){
+        for(String injectFace: selectFaces){
             if(verbose==1){
                 System.out.println("------------------------------------------------");
                 System.out.println(instance+") INJECT from "+injectFace+" @ " + face2NodeMap.get(injectFace).getNodeID()+ " *******************************");
@@ -147,5 +156,18 @@ public class Reachability_Full { // reachability check: inject /* one by one
         }
         System.out.println((System.currentTimeMillis() - start)+" ms");        
         
+    }
+    
+    public static Set <String> readFaces(String fname) throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader(fname);
+        BufferedReader br = new BufferedReader(fr);
+        Set<String> faces = new HashSet<>();
+        String line;
+        while((line=br.readLine())!=null){
+            faces.add(line);
+        }
+        br.close();
+        fr.close();
+        return faces;
     }
 }
