@@ -19,7 +19,7 @@ public class preProcessFIB {
                 continue;
             }
             String fname = file.getName();
-            processInputFIB(infname+"//"+fname, "multicast", fname);
+            processInputFIB(infname+"//"+fname, "best-route", fname);
             //processFaces(infname+"//"+fname, fname);
         }        
     }

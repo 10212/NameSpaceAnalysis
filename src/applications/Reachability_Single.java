@@ -8,44 +8,54 @@ import java.util.*;
  * @author MohammadHossein
  */
 public class Reachability_Single { // content reachability analysis; all at once
-    
+    static int verbose=0;
     public static void main(String[] args) throws IOException {
+        long start = System.currentTimeMillis();
         
         SnapshotReader snapshot = new SnapshotReader();
         Network net = snapshot.readSnapshotFromFile("file2b.txt");
-        net.printNetworkSummary();
+        if(verbose==1)
+            net.printNetworkSummary();
         
-        System.out.println("---------------------------------------");
-        
-        System.out.println("0:");
-        net.printPacketLists();       
+        if(verbose==1){
+            System.out.println("---------------------------------------");
+
+            System.out.println("0:");
+            net.printPacketLists();  
+        }
 
         int time = 1;
         
         while(net.getArrivingPackets().size()!=0){
-            System.out.println(time+":");
+            if(verbose==1)
+                System.out.println(time+":");
             net.networkTransferUpdate();
-            net.printPacketLists();
+            if(verbose==1)
+                net.printPacketLists();
             time++;
-            System.out.println(time+":");
+            if(verbose==1)
+                System.out.println(time+":");
             net.topologyTransferUpdates(0);
-            net.printPacketLists();
+            if(verbose==1)
+                net.printPacketLists();
             time++;
         }
-
-        net.printProviderNames();
         
-//        net.printVisitedNames();
-        net.printArrivingVisitedNames();
-//       net.printLeavingArrivingVisitedNames();
+        if(verbose==1){
+            net.printProviderNames();
 
-        //System.out.println("\nLoops: "+net.getLoops());
+    //        net.printVisitedNames();
+            net.printArrivingVisitedNames();
+    //       net.printLeavingArrivingVisitedNames();
 
-        //Check compare betweeb ProviderNames and ArrivingVisitedNames
-        System.out.println("\n--------------------------------------------------------\nCompare ProviderNames and ArrivingVisitedNames:");
+            //System.out.println("\nLoops: "+net.getLoops());
 
-        //comparison 1
-        System.out.println("\n*****Comparison1: ProvdiderNames < ArrivingVisitedNames? (lack of full ns coverage)");
+            //Check compare betweeb ProviderNames and ArrivingVisitedNames
+            System.out.println("\n--------------------------------------------------------\nCompare ProviderNames and ArrivingVisitedNames:");
+
+            //comparison 1
+            System.out.println("\n*****Comparison1: ProvdiderNames < ArrivingVisitedNames? (lack of full ns coverage)");
+        }
         Set <String> nodeNames = new HashSet<>();
         for(Node n: net.getFace2Node().values()){
             //ignore if node not provider
@@ -53,7 +63,8 @@ public class Reachability_Single { // content reachability analysis; all at once
                 continue;
             }
            if(!nodeNames.contains(n.getNodeID())){ 
-                System.out.println(n.getNodeID()+" : ");
+                if(verbose==1)
+                    System.out.println(n.getNodeID()+" : ");
                 //n.printProviderNames();
                 List <Name> providerNames = n.getProviderNames();
                 //n.printArrivingVisitedNames();
@@ -64,19 +75,23 @@ public class Reachability_Single { // content reachability analysis; all at once
                     boolean check=false; // true is it is subset
                     for(String avn: arrivingVisitedNames){
                         Name avn_name = new Name(avn);
-                        System.out.println(pn.name2String()+" < "+avn+" ? "+ pn.subsetOf(avn_name));
+                        if(verbose==1)
+                            System.out.println(pn.name2String()+" < "+avn+" ? "+ pn.subsetOf(avn_name));
                         if(pn.subsetOf(avn_name)){
                             check=true;
                             //break;
                         }
                     }
-                    System.out.print("\t"+pn.name2String()+ " < allArrivingVisited ? "+ check+"\n");
+                    if(verbose==1)
+                        System.out.print("\t"+pn.name2String()+ " < allArrivingVisited ? "+ check+"\n");
                 }
-                System.out.println();
+                if(verbose==1)
+                    System.out.println();
            }
         }
         //comparison 2
-        System.out.println("\n*****Comparison2: ArrivingVisitedNames < ProvdiderNames? (lack of blackholed packets)");
+        if(verbose==1)
+            System.out.println("\n*****Comparison2: ArrivingVisitedNames < ProvdiderNames? (lack of blackholed packets)");
         nodeNames = new HashSet<>();
         for(Node n: net.getFace2Node().values()){
             //ignore if node not provider
@@ -84,7 +99,8 @@ public class Reachability_Single { // content reachability analysis; all at once
                 continue;
             }
            if(!nodeNames.contains(n.getNodeID())){ 
-                System.out.println(n.getNodeID()+" : ");
+                if(verbose==1)
+                    System.out.println(n.getNodeID()+" : ");
                 //n.printProviderNames();
                 List <Name> providerNames = n.getProviderNames();
                 //n.printArrivingVisitedNames();
@@ -94,18 +110,23 @@ public class Reachability_Single { // content reachability analysis; all at once
                 for(String avn: arrivingVisitedNames  ){
                     Name avn_name = new Name(avn);
                     boolean check=false; // true is it is subset
-                    for(Name pn: providerNames){                        
-                        System.out.println(avn+" < "+pn.name2String()+" ? "+ avn_name.subsetOf(pn));
+                    for(Name pn: providerNames){ 
+                        if(verbose==1)
+                            System.out.println(avn+" < "+pn.name2String()+" ? "+ avn_name.subsetOf(pn));
                         if(avn_name.subsetOf(pn)){
                             check=true;
                             //break;
                         }
                     }
-                    System.out.print("\t"+avn+ " < allProviderNames ? "+ check+"\n");
+                    if(verbose==1)
+                        System.out.print("\t"+avn+ " < allProviderNames ? "+ check+"\n");
                 }
-                System.out.println();
+                if(verbose==1)
+                    System.out.println();
            }
         }
+        System.out.println((System.currentTimeMillis() - start)+" ms");        
+
     }
     
 }
