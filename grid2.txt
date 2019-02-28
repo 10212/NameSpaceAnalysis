@@ -13,3 +13,7 @@
 -provider	p1	/a/*
 -provider	p2	/b/*
 -injectAll	/*
+#-inject	/*	n1.1
+#-inject	/*	n2.1
+#-inject	/*	p1.1
+#-inject	/*	p2.1

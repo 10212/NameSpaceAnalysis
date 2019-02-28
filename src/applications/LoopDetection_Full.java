@@ -9,13 +9,13 @@ import java.util.*;
  * @author MohammadHossein
  */
 public class LoopDetection_Full { // for loop detection
-        static int verbose=1;
-        static int allFaces =0;
+        static int verbose=0;
+        static int allFaces =1;
         public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();    
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("grid3.txt");
+        Network net = snapshot.readSnapshotFromFile("grid5.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());

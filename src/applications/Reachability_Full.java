@@ -16,7 +16,7 @@ public class Reachability_Full { // reachability check: inject /* one by one
         
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("grid3.txt");
+        Network net = snapshot.readSnapshotFromFile("grid5.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());

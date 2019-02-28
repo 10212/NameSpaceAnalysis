@@ -41,3 +41,12 @@
 -provider	p2	/b/*
 -provider	p3	/c/*
 -injectAll	/*
+#-inject	/*	n1.1
+#-inject	/*	n2.1
+#-inject	/*	n3.1
+#-inject	/*	n4.1
+#-inject	/*	n5.1
+#-inject	/*	n6.1
+#-inject	/*	p1.1
+#-inject	/*	p2.1
+#-inject	/*	p3.1

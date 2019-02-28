@@ -11,9 +11,8 @@ public class Reachability_Single { // content reachability analysis; all at once
     static int verbose=0;
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
-        
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("grid2.txt");
+        Network net = snapshot.readSnapshotFromFile("grid5.txt");
         if(verbose==1)
             net.printNetworkSummary();
         
@@ -125,6 +124,7 @@ public class Reachability_Single { // content reachability analysis; all at once
                     System.out.println();
            }
         }
+
         System.out.println((System.currentTimeMillis() - start)+" ms");        
 
     }
