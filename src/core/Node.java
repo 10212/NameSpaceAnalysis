@@ -13,15 +13,16 @@ public class Node {
     private List<Rule> rules;
     private String nodeID;
     private List<Name> providerNames;
+    private List<Name> prohibitedNames;
     private Set<String> visitedNames;
     private Set<String> arrivingVisitedNames;
     private Set<String> leavingVisitedNames;
-   
 
     public Node(String nodeID) {
         this.rules = rules = new ArrayList<>();
         this.nodeID = nodeID;
         this.providerNames = new ArrayList<>();
+        this.prohibitedNames = new ArrayList<>();
         this.visitedNames = new HashSet<>();
         this.arrivingVisitedNames = new HashSet<>();
         this.leavingVisitedNames = new HashSet<>();
@@ -32,6 +33,7 @@ public class Node {
         this.rules = rules;
         this.nodeID = nodeID;
         this.providerNames = new ArrayList<>();
+        this.prohibitedNames = new ArrayList<>();
         this.visitedNames = new HashSet<>();
         this.arrivingVisitedNames = new HashSet<>();
         this.leavingVisitedNames = new HashSet<>();
@@ -88,7 +90,35 @@ public class Node {
         for(Name n: providerNames){
             System.out.print(n.name2String()+" ");
         }
-    }    
+    } 
+    
+    public List<Name> getProhibitedNames() {
+        return prohibitedNames;
+    }
+
+    public void setProhibitedNames(List<Name> prohibitedNames) {
+        this.prohibitedNames = prohibitedNames;
+    }
+    
+    public void addProhibitedNames(Name name){
+        prohibitedNames.add(name);
+    }
+        
+    public List<String> prohibitedNames2stringList(){
+        List<String> results = new ArrayList<>();
+        for(Name n: prohibitedNames){
+            results.add(n.name2String());
+        }
+        return results;
+    }
+
+    public void printProhibitedNames(){
+        System.out.print(nodeID+": ");
+        for(Name n: prohibitedNames){
+            System.out.print(n.name2String()+" ");
+        }
+    }  
+    
     
     public void printVisitedNames(){
         System.out.print(nodeID+": ");

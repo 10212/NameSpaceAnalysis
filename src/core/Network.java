@@ -188,7 +188,7 @@ public class Network {
 
     
     public void printProviderNames(){
-        System.out.println("\nAnnounced Provider Names:");
+        System.out.println("\nProvider Names:");
         Set <String> nodeNames = new HashSet<>();
         for(Node n: face2Node.values()){
            if(!nodeNames.contains(n.getNodeID())){ 
@@ -199,6 +199,17 @@ public class Network {
         }
     }
 
+    public void printProhibitedNames(){
+        System.out.println("\nProhibited Names:");
+        Set <String> nodeNames = new HashSet<>();
+        for(Node n: face2Node.values()){
+           if(!nodeNames.contains(n.getNodeID())){ 
+            n.printProhibitedNames();
+            nodeNames.add(n.getNodeID());
+            System.out.println();
+           }
+        }
+    }
     
     public void printVisitedNames(){
         System.out.println("\nAll Visited Names at nodes:");
@@ -258,6 +269,7 @@ public class Network {
         this.printNodeRules();
         this.printProviderNames();
         this.printVisitedNames();
+        this.printProhibitedNames();
         this.printArrivingPacketLists();
         this.printLeavingPacketLists();
     }

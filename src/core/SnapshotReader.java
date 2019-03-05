@@ -63,6 +63,13 @@ public class SnapshotReader {
                 Name name = new Name(elements[2]);
                 node.addProviderName(name);
             }
+
+            else if(elements[0].equals("-prohibited")){
+                String nodeName = elements[1];
+                Node node = nodes.get(nodeName);
+                Name name = new Name(elements[2]);
+                node.addProhibitedNames(name);
+            }
             
             else if(elements[0].equals("-inject")){
                 PacketFace pf = new PacketFace(elements[1], elements[2]);

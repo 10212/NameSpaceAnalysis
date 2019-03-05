@@ -26,7 +26,7 @@ public class Reachability_Full { // reachability check: inject /* one by one
         }
         //now add inject one by one for each face
         Map <String, Node> face2NodeMap = net.getFace2Node();
-                Set <String> selectFaces;
+        Set <String> selectFaces;
         if(allFaces==1)
             //all faces
             selectFaces = face2NodeMap.keySet();

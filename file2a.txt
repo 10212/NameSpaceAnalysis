@@ -8,4 +8,6 @@
 -provider	m	/a/*
 -provider	m	/a/b/c/*
 -provider	p	/a/b/*
+-prohibited	m	/a/b/*
+-prohibited	p	/a/b/c/*
 -injectAll	/*

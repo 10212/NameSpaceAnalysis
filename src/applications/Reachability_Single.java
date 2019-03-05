@@ -8,11 +8,12 @@ import java.util.*;
  * @author MohammadHossein
  */
 public class Reachability_Single { // content reachability analysis; all at once
-    static int verbose=0;
+    static int verbose=1;
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("grid5.txt");
+        Network net = snapshot.readSnapshotFromFile("file2a.txt");
+        String fname = snapshot.getFileName();
         if(verbose==1)
             net.printNetworkSummary();
         
