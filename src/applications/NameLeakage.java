@@ -8,6 +8,7 @@ import core.*;
  */
 public class NameLeakage {
     static int verbose=1;
+    static int allFaces=1;
     public static void main(String [] args) throws IOException{
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
@@ -22,7 +23,12 @@ public class NameLeakage {
         //now add inject one by one for each face
         Map <String, Node> face2NodeMap = net.getFace2Node();
         Set <String> selectFaces;
-        selectFaces = face2NodeMap.keySet();
+        if(allFaces==1)
+            //all faces
+            selectFaces = face2NodeMap.keySet();
+        else
+        //or, get faces from file
+            selectFaces = readFaces("faces.txt");
         
         int instance =1;
         Map<String, List<String>> zones = readZones("zones.txt");
@@ -36,7 +42,7 @@ public class NameLeakage {
             net = snapshot.readSnapshotFromFile(fname);
             //remove added arriving packets
             net.setArrivingPackets(new ArrayList<PacketFace>());
-            for(String face: face2NodeMap.keySet()){
+            for(String face: selectFaces){
                 String nodeID = face2NodeMap.get(face).getNodeID();
                 if(zoneNodes.contains(nodeID)){
                     net.addArrivingPackets(new PacketFace("/*", face));
