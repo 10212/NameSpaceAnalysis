@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Common {
 
-    
+    public static int maxLength = 10;//maximum no of components in name
     public Name nameIntersection (Name name1, Name name2){
         Name result = new Name();
         int i=0;
@@ -43,8 +43,14 @@ public class Common {
             }
             else if(name1.getComponentByIndex(i).charAt(0) == '!'){
                 if(name2.getComponentByIndex(i).charAt(0) == '!'){
-                    result.addNameComponent(name1.getComponentByIndex(i)+name2.getComponentByIndex(i));
-                    System.out.println("Warning: "+name1.getComponentByIndex(i)+" "+name2.getComponentByIndex(i));
+                    if(name1.getComponentByIndex(i).substring(1).equals(name2.getComponentByIndex(i).substring(1))){
+                        result.addNameComponent(name1.getComponentByIndex(i));
+                    }
+                    else{
+                        result.addNameComponent(name1.getComponentByIndex(i));
+                        //result.addNameComponent(name1.getComponentByIndex(i)+name2.getComponentByIndex(i));
+                        //System.out.println("Warning: "+name1.getComponentByIndex(i)+" "+name2.getComponentByIndex(i));
+                    }
                 }
                 else if(name1.getComponentByIndex(i).substring(1).equals(name2.getComponentByIndex(i))){
                     Name result2 = new Name("/");
@@ -57,8 +63,14 @@ public class Common {
 
             else if(name2.getComponentByIndex(i).charAt(0) == '!'){
                 if(name1.getComponentByIndex(i).charAt(0) == '!'){
-                    result.addNameComponent(name1.getComponentByIndex(i)+name2.getComponentByIndex(i));
-                    System.out.println("Warning: "+name1.getComponentByIndex(i)+" "+name2.getComponentByIndex(i));
+                    if(name1.getComponentByIndex(i).substring(1).equals(name2.getComponentByIndex(i).substring(1))){
+                        result.addNameComponent(name1.getComponentByIndex(i));
+                    }
+                    else{
+                        result.addNameComponent(name1.getComponentByIndex(i));
+                        //result.addNameComponent(name1.getComponentByIndex(i)+name2.getComponentByIndex(i));
+                        //System.out.println("Warning: "+name1.getComponentByIndex(i)+" "+name2.getComponentByIndex(i));
+                    }
                 }
                 else if(name2.getComponentByIndex(i).substring(1).equals(name1.getComponentByIndex(i))){
                     Name result2 = new Name("/");

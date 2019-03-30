@@ -12,7 +12,7 @@ public class Reachability_Single { // content reachability analysis; all at once
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("file2a.txt");
+        Network net = snapshot.readSnapshotFromFile("C:\\Users\\MohammadHossein\\Downloads\\ndn-testbed\\Data_clean\\test1_multicast.txt");
         String fname = snapshot.getFileName();
         if(verbose==1)
             net.printNetworkSummary();

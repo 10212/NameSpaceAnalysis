@@ -9,15 +9,15 @@ import java.util.*;
  */
 public class RuleGenerator {
     
-    static int verbose=0;
+    static int verbose=1;
     
-    public static void main(String[] args) throws IOException {
-        long start = System.currentTimeMillis();    
+    public void generateNSArules(String fname) throws IOException {
+        //long start = System.currentTimeMillis();    
 
         Common nsa = new Common();
-        FileReader fr = new FileReader("nodesData/uci.txt_processed - routeBest.txt");
+        FileReader fr = new FileReader(fname);
         BufferedReader br = new BufferedReader(fr);        
-        FileWriter fw = new FileWriter("fib-processed.txt");
+        FileWriter fw = new FileWriter(fname+"_fib-processed.txt");
         List<PacketFace> inList = new ArrayList<>();
         String line;//format: "prefix \t outFace);
         
@@ -44,8 +44,8 @@ public class RuleGenerator {
                     hasSubset=1;
                     int sizeDifference = pf2.getPacket().getName().getSize() - pf1.getPacket().getName().getSize();
 //                    System.out.println(pf1.getPacket().getName().name2String()+" MATCH "+pf2.getPacket().getName().name2String() + " SIZEDIFF: "+sizeDifference);
-                    if(verbose==1)
-                        fw.write(pf1.getPacket().getName().name2String()+" MATCH "+pf2.getPacket().getName().name2String() + " SIZEDIFF: "+sizeDifference+"\n");
+//                    if(verbose==1)
+//                        fw.write(pf1.getPacket().getName().name2String()+" MATCH "+pf2.getPacket().getName().name2String() + " SIZEDIFF: "+sizeDifference+"\n");
                     
                     //
                     for(int j =0; j< Math.pow(2, sizeDifference); j++){
@@ -59,13 +59,13 @@ public class RuleGenerator {
                             continue;
                         }
 //                        System.out.println(jBin);
-                        if(verbose==1)
-                            fw.write(jBin+"\n");
+//                        if(verbose==1)
+//                            fw.write(jBin+"\n");
 
                         //0 same, 1 negative
 //                        System.out.print("-rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString().substring(0, pf1.getPacket().getNameAsString().length()-1));
                         if(verbose==1)
-                            fw.write("-rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString().substring(0, pf1.getPacket().getNameAsString().length()-1)+"\n");
+                            fw.write("-rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString().substring(0, pf1.getPacket().getNameAsString().length()-1));
 
                         for(int k=0; k<sizeDifference; k++){
                             if(jBin.charAt(k)=='0'){
@@ -89,7 +89,7 @@ public class RuleGenerator {
             if(hasSubset==0){
 //                System.out.println("--rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString()+"\tANY\t"+pf1.getFace());
                 if(verbose==1)
-                    fw.write("--rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString()+"\tANY\t"+pf1.getFace()+"\n");
+                    fw.write("-rule\t"+nodeName+"\t"+pf1.getPacket().getNameAsString()+"\tANY\t"+pf1.getFace()+"\n");
 
             }
         }
@@ -98,7 +98,7 @@ public class RuleGenerator {
         fw.close();
         br.close();
         fr.close();
-        System.out.println((System.currentTimeMillis() - start)+" ms");        
+        //System.out.println((System.currentTimeMillis() - start)+" ms");        
         
     }
 }

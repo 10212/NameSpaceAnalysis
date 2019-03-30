@@ -10,17 +10,19 @@ import java.util.*;
 public class preProcessFIB {
     public static void main(String[] args) throws IOException {
         BufferedReader logReader = new BufferedReader(new InputStreamReader(System.in));
+        RuleGenerator rg = new RuleGenerator();
         System.out.print("Enter input file path: "); 
         String infname = logReader.readLine();
         File directory = new File(infname);
         File[] listOfFiles = directory.listFiles();        
         for (File file : listOfFiles) {
-            if(file.getName().contains("_processed")){
+            if(file.getName().contains("_processed.txt") || file.isDirectory()){
                 continue;
             }
             String fname = file.getName();
-            processInputFIB(infname+"//"+fname, "best-route", fname);
+            //processInputFIB(infname+"//"+fname, "multicast", fname);
             //processFaces(infname+"//"+fname, fname);
+            rg.generateNSArules(infname+"//"+fname);
         }        
     }
     
@@ -29,7 +31,7 @@ public class preProcessFIB {
         //fname is Node ID minus extension
         String nodeID = justFname.replace(".txt", "");
         BufferedReader br = new BufferedReader(fr);
-        FileWriter fw = new FileWriter(fname+"_processed.txt");
+        FileWriter fw = new FileWriter(fname+"_processed_"+strategy+"_clean.txt");
         fw.write(nodeID+"\n");
         
         String line;
@@ -37,6 +39,13 @@ public class preProcessFIB {
         while((line=br.readLine())!=null){
             //first line is prefix
             String prefix = line;
+            //clean
+            if(prefix.contains("KEY") || prefix.contains("C1.Router") || 
+                    prefix.contains("localhost") || prefix.contains("localhop") || prefix.contains(nodeID)){
+                br.readLine();
+                br.readLine();
+                continue;
+            }
             prefix = prefix.replace(" ", "");
             prefix = prefix.replace("/t", "");
             //2nd line is face list

@@ -49,12 +49,21 @@ public class SnapshotReader {
             
             else if(elements[0].equals("-link")){
                 net.addBiLink(elements[1], elements[2]);
+                if(!net.getFace2Node().containsKey(elements[1])){
+                    System.out.println("XXX face "+elements[1]+" does not exist!");
+                }
+                if(!net.getFace2Node().containsKey(elements[2])){
+                    System.out.println("XXX face "+elements[2]+" does not exist!");
+                }
             }
             
             else if(elements[0].equals("-rule")){
                 String nodeName = elements[1];
                 Node node = nodes.get(nodeName);
                 node.addRule(elements[2], elements[3], elements[4]);
+                if(!net.getFace2Node().containsKey(elements[4])){
+                    System.out.println("XXX face "+elements[4]+" does not exist!");
+                }
             }
             
             else if(elements[0].equals("-provider")){

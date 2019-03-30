@@ -12,7 +12,7 @@ public class NameLeakage {
     public static void main(String [] args) throws IOException{
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("grid3 - nameLeak.txt");
+        Network net = snapshot.readSnapshotFromFile("ring2x5-bad.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());
@@ -71,7 +71,7 @@ public class NameLeakage {
             }
             //comparison 
             if(verbose==1)
-                System.out.println("\n*****Comparison: ProhibitedNames < ArrivingVisitedNames?");
+                System.out.println("\n*****Comparison: ProhibitedNames < ArrivingVisitedNames? (all false is desirable)");
             Set <String> nodeNames = new HashSet<>();
             for(Node n: net.getFace2Node().values()){
                 //ignore if node nothing prohibited or from zone
