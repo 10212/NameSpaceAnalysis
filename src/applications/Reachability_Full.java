@@ -17,7 +17,7 @@ public class Reachability_Full { // reachability check: inject /* one by one
         
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("C:\\Users\\MohammadHossein\\Downloads\\ndn-testbed\\Data_clean\\test1_multicast.txt");
+        Network net = snapshot.readSnapshotFromFile("grid3.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());
@@ -33,7 +33,7 @@ public class Reachability_Full { // reachability check: inject /* one by one
             selectFaces = face2NodeMap.keySet();
         else
         //or, get faces from file
-            selectFaces = readFaces("C:\\Users\\MohammadHossein\\Downloads\\ndn-testbed\\Data_clean\\faces.txt");
+            selectFaces = readFaces("faces.txt");
         
         int instance =1;
 

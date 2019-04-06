@@ -1,0 +1,112 @@
+-node	n1	n1.1	n1.2
+-node	n2	n2.1	n2.2	n2.3
+-node	n3	n3.1	n3.2	n3.3
+-node	n4	n4.1	n4.2
+-node	n5	n5.1	n5.2	n5.3
+-node	n6	n6.1	n6.2	n6.3	n6.4
+-node	n7	n7.1	n7.2	n7.3	n7.4
+-node	n8	n8.1	n8.2	n8.3
+-node	n9	n9.1	n9.2	n9.3
+-node	n10	n10.1	n10.2	n10.3	n10.4
+-node	n11	n11.1	n11.2	n11.3	n11.4
+-node	n12	n12.1	n12.2	n12.3
+-node	p1	p1.1	p1.2
+-node	p2	p2.1	p2.2	p2.3
+-node	p3	p3.1	p3.2	p3.3
+-node	p4	p4.1	p4.2
+#rules
+-rule	n1	/a/*	ANY	n1.2
+-rule	n1	/b/*	ANY	n1.2
+-rule	n1	/c/*	ANY	n1.1
+-rule	n1	/d/*	ANY	n1.1
+-rule	n2	/a/*	ANY	n2.2
+-rule	n2	/b/*	ANY	n2.2
+-rule	n2	/c/*	ANY	n2.1
+-rule	n2	/d/*	ANY	n2.1
+-rule	n3	/a/*	ANY	n3.2
+-rule	n3	/b/*	ANY	n3.2
+-rule	n3	/c/*	ANY	n3.2
+-rule	n3	/d/*	ANY	n3.1
+-rule	n4	/a/*	ANY	n4.1
+-rule	n4	/b/*	ANY	n4.1
+-rule	n4	/c/*	ANY	n4.1
+-rule	n4	/d/*	ANY	n4.1
+-rule	n5	/a/*	ANY	n5.3
+-rule	n5	/b/*	ANY	n5.3
+-rule	n5	/c/*	ANY	n5.2
+-rule	n5	/d/*	ANY	n5.2
+-rule	n6	/a/*	ANY	n6.3
+-rule	n6	/b/*	ANY	n6.3
+-rule	n6	/c/*	ANY	n6.2
+-rule	n6	/d/*	ANY	n6.2
+-rule	n7	/a/*	ANY	n7.3
+-rule	n7	/b/*	ANY	n7.3
+-rule	n7	/c/*	ANY	n7.2
+-rule	n7	/d/*	ANY	n7.2
+-rule	n8	/a/*	ANY	n8.2
+-rule	n8	/b/*	ANY	n8.2
+-rule	n8	/c/*	ANY	n8.2
+-rule	n8	/d/*	ANY	n8.2
+-rule	n9	/a/*	ANY	n9.3
+-rule	n9	/b/*	ANY	n9.2
+-rule	n9	/c/*	ANY	n9.2
+-rule	n9	/d/*	ANY	n9.2
+-rule	n10	/a/*	ANY	n10.4
+-rule	n10	/b/*	ANY	n10.3
+-rule	n10	/c/*	ANY	n10.2
+-rule	n10	/d/*	ANY	n10.2
+-rule	n11	/a/*	ANY	n11.4
+-rule	n11	/b/*	ANY	n11.4
+-rule	n11	/c/*	ANY	n11.3
+-rule	n11	/d/*	ANY	n11.2
+-rule	n12	/a/*	ANY	n12.3
+-rule	n12	/b/*	ANY	n12.3
+-rule	n12	/c/*	ANY	n12.3
+-rule	n12	/d/*	ANY	n12.2
+#link
+-link	n1.2	n5.1
+-link	n5.3	n9.1
+-link	n9.3	p1.1
+-link	n2.2	n6.1
+-link	n6.3	n10.1
+-link	n10.3	p2.1
+-link	n3.2	n7.1
+-link	n7.3	n11.1
+-link	n11.3	p3.1
+-link	n4.1	n8.1
+-link	n8.2	n12.1
+-link	n12.2	p4.2
+-link	n1.1	n2.3
+-link	n2.1	n3.3
+-link	n3.1	n4.2
+-link	n5.2	n6.4
+-link	n6.2	n7.4
+-link	n7.2	n8.3
+-link	n9.2	n10.4
+-link	n10.2	n11.4
+-link	n11.2	n12.3
+-link	p1.2	p2.3
+-link	p2.2	p3.3
+-link	p3.2	p4.2
+#provider
+-provider	p1	/a/*
+-provider	p2	/b/*
+-provider	p3	/c/*
+-provider	p4	/d/*
+-injectAll	/*
+#-inject	/*	n1.1
+#-inject	/*	n2.1
+#-inject	/*	n3.1
+#-inject	/*	n4.1
+#-inject	/*	n5.1
+#-inject	/*	n6.1
+#-inject	/*	n7.1
+#-inject	/*	n8.1
+#-inject	/*	n9.1
+#-inject	/*	n10.1
+#-inject	/*	n11.1
+#-inject	/*	n12.1
+#-inject	/*	p1.1
+#-inject	/*	p2.1
+#-inject	/*	p3.1
+#-inject	/*	p4.1

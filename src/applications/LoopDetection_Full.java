@@ -15,7 +15,7 @@ public class LoopDetection_Full { // for loop detection
         long start = System.currentTimeMillis();    
         
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("C:\\Users\\MohammadHossein\\Downloads\\ndn-testbed\\Data_clean\\test1_multicast.txt");
+        Network net = snapshot.readSnapshotFromFile("grid3.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());
@@ -31,7 +31,7 @@ public class LoopDetection_Full { // for loop detection
             selectFaces = face2NodeMap.keySet();
         else
         //or, get faces from file
-            selectFaces = readFaces("C:\\Users\\MohammadHossein\\Downloads\\ndn-testbed\\Data_clean\\faces.txt");
+            selectFaces = readFaces("faces.txt");
         
         int instance =1;
 
