@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  *
- * @author MohammadHossein
+ * @author Mohammad Jahanian
  */
 public class example2 {
     

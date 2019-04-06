@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- *
- * @author MohammadHossein
+ * Content Reachability Analysis (aggregated; optimized)
+ * Gives results for one check: lack of misdirected packets
+ * @author Mohammad Jahanian
  */
 public class Reachability_Single { // content reachability analysis; all at once
     static int verbose=1;

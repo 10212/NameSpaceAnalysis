@@ -1,44 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 import java.util.*;
 
 /**
- *
- * @author MohammadHossein
+ * NDN packet
+ * @author Mohammad Jahanian
  */
-public class SinglePacket {
+public class Packet {
 
     private Name name;
     private Map <String, String> fieldValues;
     private int TTL;
     private List<String> nodesNamesVisited;
     
-    public SinglePacket(){
+    public Packet(){
         name = new Name();
         fieldValues = new HashMap<>();
     }
     
-    public SinglePacket(Name name, Map <String, String> fields){
+    public Packet(Name name, Map <String, String> fields){
         this.name = name;
         fieldValues = fields;
     }
 
-    public SinglePacket(String name, Map <String, String> fields){
+    public Packet(String name, Map <String, String> fields){
         this.name = new Name(name);
         fieldValues = fields;
     }
 
-    public SinglePacket(Name name){
+    public Packet(Name name){
         this.name = name;
         fieldValues = new HashMap<>();
         
     }
 
-    public SinglePacket(String name){
+    public Packet(String name){
         this.name = new Name(name);
         fieldValues = new HashMap<>();
     }

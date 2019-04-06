@@ -3,8 +3,8 @@ import java.io.*;
 import java.util.*;
 import core.*;
 /**
- *
- * @author MohammadHossein
+ * Name leakage detection application; outputs all name leakage violations
+ * @author Mohammad Jahanian
  */
 public class NameLeakage {
     static int verbose=1;
@@ -12,7 +12,7 @@ public class NameLeakage {
     public static void main(String [] args) throws IOException{
         long start = System.currentTimeMillis();
         SnapshotReader snapshot = new SnapshotReader();
-        Network net = snapshot.readSnapshotFromFile("ring2x5-bad.txt");
+        Network net = snapshot.readSnapshotFromFile("ring2x2.txt");
         String fname = snapshot.getFileName();
         //remove added arriving packets
         net.setArrivingPackets(new ArrayList<PacketFace>());

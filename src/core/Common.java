@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 import java.util.*;
 /**
  *
- * @author MohammadHossein
+ * @author Mohammad Jahanian
  */
 public class Common {
 
@@ -90,8 +86,8 @@ public class Common {
         return result;
     }
     
-    public SinglePacket singlePacketIntersection(SinglePacket p1, SinglePacket p2){
-        SinglePacket result = new SinglePacket();
+    public Packet singlePacketIntersection(Packet p1, Packet p2){
+        Packet result = new Packet();
         if(p1.getFieldValues().equals(p2.getFieldValues())){
             result.setName(nameIntersection(p1.getName(), p2.getName()));
         }      

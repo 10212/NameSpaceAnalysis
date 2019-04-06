@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  *
- * @author MohammadHossein
+ * @author Mohammad Jahanian
  */
 public class preProcessFIB {
     public static void main(String[] args) throws IOException {

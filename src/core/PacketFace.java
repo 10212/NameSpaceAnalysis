@@ -1,39 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 import java.util.*;
 /**
- *
- * @author MohammadHossein
+ * packet and face pair
+ * @author Mohammad Jahanian
  */
-//packet and face pair
+
 public class PacketFace {
-    private SinglePacket packet;
+    private Packet packet;
     private String face;
 
-    public PacketFace(SinglePacket packet, String face) {
+    public PacketFace(Packet packet, String face) {
         this.packet = packet;
         this.face = face;
     }
 
     public PacketFace() {
-        this.packet = new SinglePacket();
+        this.packet = new Packet();
         this.face = "";
     }
     
     public PacketFace(String packet, String face) {
-        this.packet = new SinglePacket(packet);
+        this.packet = new Packet(packet);
         this.face = face;
     }
     
-    public SinglePacket getPacket() {
+    public Packet getPacket() {
         return packet;
     }
 
-    public void setPacket(SinglePacket packet) {
+    public void setPacket(Packet packet) {
         this.packet = packet;
     }
 

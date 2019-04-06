@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 import java.util.*;
 /**
- *
- * @author MohammadHossein
+ * The info for a network data plane snapshot 
+ * @author Mohammad Jahanian
  */
 public class Network {
     private List<PacketFace> arrivingPackets;
@@ -60,7 +56,7 @@ public class Network {
     public void topologyTransferUpdates(int logLoop){ // bring leaving packets to arriving positions
         List<PacketFace> temp_pf = new ArrayList<>();
         for(PacketFace l_packetFace: leavingPackets){
-            SinglePacket l_packet = l_packetFace.getPacket();
+            Packet l_packet = l_packetFace.getPacket();
             String l_face = l_packetFace.getFace();
             if(links.containsKey(l_face)){
                 for(String a_face:links.get(l_face)){
@@ -91,7 +87,7 @@ public class Network {
     public void networkTransferUpdate(){//give arriving apckets to nodes
         List<PacketFace> temp_pf = new ArrayList<>();
         for(PacketFace a_packetFace: arrivingPackets){
-            SinglePacket a_packet = a_packetFace.getPacket();
+            Packet a_packet = a_packetFace.getPacket();
             String a_face = a_packetFace.getFace();
             temp_pf.add(a_packetFace);
             if(face2Node.containsKey(a_face)){

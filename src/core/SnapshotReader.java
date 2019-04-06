@@ -3,8 +3,8 @@ package core;
 import java.io.*;
 import java.util.*;
 /**
- *
- * @author MohammadHossein
+ * Reads snapshot from input file, parses and makes a network object out of it
+ * @author Mohammad Jahanian
  */
 public class SnapshotReader {
     

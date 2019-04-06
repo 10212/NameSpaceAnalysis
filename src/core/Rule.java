@@ -1,42 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 import core.Common;
 /**
- *
- * @author MohammadHossein
+ * each rule is a single network transfer function
+ * @author Mohammad Jahanian
  */
 public class Rule {
-    private SinglePacket packetRule;
+    private Packet packetRule;
     private String face_in; // "ANY" means no condition on incoming face
     private String face_out;
 
     public Rule() {
-        this.packetRule = new SinglePacket();
+        this.packetRule = new Packet();
         this.face_in = "ANY";
         this.face_out = "";
     }    
     
-    public Rule(SinglePacket packetRule, String face_in, String face_out) {
+    public Rule(Packet packetRule, String face_in, String face_out) {
         this.packetRule = packetRule;
         this.face_in = face_in;
         this.face_out = face_out;
     }
     
     public Rule(String packetRule, String face_in, String face_out) {
-        this.packetRule = new SinglePacket(packetRule);
+        this.packetRule = new Packet(packetRule);
         this.face_in = face_in;
         this.face_out = face_out;
     }
 
-    public SinglePacket getPacketRule() {
+    public Packet getPacketRule() {
         return packetRule;
     }
 
-    public void setPacketRule(SinglePacket packetRule) {
+    public void setPacketRule(Packet packetRule) {
         this.packetRule = packetRule;
     }
 
@@ -68,7 +64,7 @@ public class Rule {
     public PacketFace matchRule(PacketFace packetFace_in){
         Common nsa = new Common();
         if(matchInFace(packetFace_in)){
-            SinglePacket packet_out = nsa.singlePacketIntersection(packetFace_in.getPacket(), packetRule);
+            Packet packet_out = nsa.singlePacketIntersection(packetFace_in.getPacket(), packetRule);
             PacketFace result = new PacketFace(packet_out, face_out);
             return result;
         }

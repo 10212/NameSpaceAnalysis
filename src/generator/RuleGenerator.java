@@ -4,8 +4,8 @@ import core.PacketFace;
 import java.io.*;
 import java.util.*;
 /**
- *
- * @author MohammadHossein
+ * Generate NSA rule (network transfer function) from FIB rules 
+ * @author Mohammad Jahanian
  */
 public class RuleGenerator {
     

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examples;
 
 import java.io.IOException;
@@ -13,11 +9,11 @@ import core.Network;
 import core.Node;
 import core.PacketFace;
 import core.Rule;
-import core.SinglePacket;
+import core.Packet;
 
 /**
  *
- * @author MohammadHossein
+ * @author Mohammad Jahanian
  */
 public class example1 {
     
@@ -42,9 +38,9 @@ public class example1 {
 
         
         System.out.println("---------------");
-        SinglePacket p1 = new SinglePacket ("/a/b/c/f/*");
+        Packet p1 = new Packet ("/a/b/c/f/*");
         System.out.println(p1.getName().name2String());
-        SinglePacket p2 = new SinglePacket ("/a/b/?/!d/!e/*");
+        Packet p2 = new Packet ("/a/b/?/!d/!e/*");
         System.out.println(p2.getName().name2String());
         System.out.println(nsa.singlePacketIntersection(p1,p2).getName().name2String());
         
