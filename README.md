@@ -48,12 +48,12 @@ Add constraint on name "p" that should not be reached at node "n" from other zon
 ### Injections
 Inject header space "h" at face "f"
 ```
--inject "h" "f"
+-inject <h> <f>
 ```
 
 Inject header space "h" at all faces
 ```
--injectAll  "h"
+-injectAll  <h>
 ```
 
 ## Face selection
