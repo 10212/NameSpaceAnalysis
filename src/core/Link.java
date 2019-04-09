@@ -3,7 +3,7 @@ package core;
 
 /**
  * link information for topology function
- * @author Mohammad Jahanian
+ * 
  */
 public class Link {
     private String face1, face2;

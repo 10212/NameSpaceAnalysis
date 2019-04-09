@@ -3,7 +3,7 @@ package core;
 import core.Common;
 /**
  * each rule is a single network transfer function
- * @author Mohammad Jahanian
+ * 
  */
 public class Rule {
     private Packet packetRule;

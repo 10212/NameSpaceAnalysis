@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * NDN packet
- * @author Mohammad Jahanian
+ * 
  */
 public class Packet {
 

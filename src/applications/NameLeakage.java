@@ -4,7 +4,7 @@ import java.util.*;
 import core.*;
 /**
  * Name leakage detection application; outputs all name leakage violations
- * @author Mohammad Jahanian
+ * 
  */
 public class NameLeakage {
     static int verbose=1;

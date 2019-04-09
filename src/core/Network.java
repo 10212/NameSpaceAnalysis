@@ -3,7 +3,7 @@ package core;
 import java.util.*;
 /**
  * The info for a network data plane snapshot 
- * @author Mohammad Jahanian
+ * 
  */
 public class Network {
     private List<PacketFace> arrivingPackets;

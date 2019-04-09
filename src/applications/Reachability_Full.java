@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Content Reachability Analysis (full; unoptimized)
  * Gives results for both checks: 1) lack of unreached names, 2) lack of misdirected packets
- * @author Mohammad Jahanian
+ * 
  */
 public class Reachability_Full { // reachability check: inject /* one by one
         static int verbose=1;

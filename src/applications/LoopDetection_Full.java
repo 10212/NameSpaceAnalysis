@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * Application for loop detection; outputs all looped packets
- * @author Mohammad Jahanian
+ * 
  */
 public class LoopDetection_Full { // for loop detection
         static int verbose=1;

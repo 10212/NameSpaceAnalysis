@@ -3,7 +3,7 @@ package core;
 import java.util.*;
 /**
  * NDN node
- * @author Mohammad Jahanian
+ * 
  */
 public class Node {
     private List<Rule> rules;

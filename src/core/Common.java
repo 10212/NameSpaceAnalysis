@@ -3,7 +3,7 @@ package core;
 import java.util.*;
 /**
  *
- * @author Mohammad Jahanian
+ * 
  */
 public class Common {
 

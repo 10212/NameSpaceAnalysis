@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 /**
  * Reads snapshot from input file, parses and makes a network object out of it
- * @author Mohammad Jahanian
+ * 
  */
 public class SnapshotReader {
     

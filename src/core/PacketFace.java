@@ -3,7 +3,7 @@ package core;
 import java.util.*;
 /**
  * packet and face pair
- * @author Mohammad Jahanian
+ * 
  */
 
 public class PacketFace {

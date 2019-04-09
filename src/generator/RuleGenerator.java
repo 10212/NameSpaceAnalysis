@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 /**
  * Generate NSA rule (network transfer function) from FIB rules 
- * @author Mohammad Jahanian
+ * 
  */
 public class RuleGenerator {
     
