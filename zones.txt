@@ -1,2 +1,0 @@
-z1	n1	n2	n3	n4	n5
-z2	m1	m2	m3	m4	m5

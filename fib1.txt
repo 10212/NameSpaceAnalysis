@@ -1,7 +1,0 @@
-node1
-/a	f1
-/a/b	f2
-/a/b/c	f3
-/b	f4
-/b	f5
-/a	f6
