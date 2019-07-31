@@ -2,6 +2,7 @@
 package core;
 import core.Common;
 /**
+ * @author Mohammad Jahanian
  * each rule is a single network transfer function
  * 
  */

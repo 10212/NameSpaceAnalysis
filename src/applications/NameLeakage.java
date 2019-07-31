@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 import core.*;
 /**
+ * @author Mohammad Jahanian 
  * Name leakage detection application; outputs all name leakage violations
  * 
  */

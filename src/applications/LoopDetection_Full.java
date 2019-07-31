@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 
 /**
+ * @author Mohammad Jahanian 
  * Application for loop detection; outputs all looped packets
  * 
  */

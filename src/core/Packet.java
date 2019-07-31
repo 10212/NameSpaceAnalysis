@@ -3,6 +3,7 @@ package core;
 import java.util.*;
 
 /**
+ * @author Mohammad Jahanian
  * NDN packet
  * 
  */

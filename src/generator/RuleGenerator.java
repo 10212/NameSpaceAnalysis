@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 /**
  * Generate NSA rule (network transfer function) from FIB rules 
- * 
+ * @author Mohammad Jahanian
  */
 public class RuleGenerator {
     
@@ -13,7 +13,6 @@ public class RuleGenerator {
     
     public void generateNSArules(String fname) throws IOException {
         //long start = System.currentTimeMillis();    
-
         Common nsa = new Common();
         FileReader fr = new FileReader(fname);
         BufferedReader br = new BufferedReader(fr);        

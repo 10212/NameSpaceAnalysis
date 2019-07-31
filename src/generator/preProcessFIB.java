@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  *
- * 
+ * @author Mohammad Jahanian
  */
 public class preProcessFIB {
     public static void main(String[] args) throws IOException {
@@ -14,16 +14,20 @@ public class preProcessFIB {
         System.out.print("Enter input file path: "); 
         String infname = logReader.readLine();
         File directory = new File(infname);
-        File[] listOfFiles = directory.listFiles();        
+        File[] listOfFiles = directory.listFiles();  
+        
         for (File file : listOfFiles) {
-            if(file.getName().contains("_processed.txt") || file.isDirectory()){
+            if(!file.getName().contains("routeBest.txt") || file.getName().contains("fib") || file.isDirectory()){
                 continue;
             }
             String fname = file.getName();
             //processInputFIB(infname+"//"+fname, "multicast", fname);
             //processFaces(infname+"//"+fname, fname);
+            long start = System.currentTimeMillis();   
             rg.generateNSArules(infname+"//"+fname);
-        }        
+            System.out.println((System.currentTimeMillis() - start)+" ms");
+        }   
+        
     }
     
     public static void processInputFIB(String fname, String strategy, String justFname) throws FileNotFoundException, IOException{
