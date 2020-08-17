@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class TopologyGenerator {
     static int grid_dim = 10; // dimesntions, e.g. 5 is 5x5, with 5 producer; adjust
-    static boolean oneFace = false; //true:inject one face; false: all faces; adjust
-    static int pro_prefixes = 1; // prefix per provider; adjust
+    static boolean oneFace = true; //true:inject one face; false: all faces; adjust
+    static int pro_prefixes = 500; // prefix per provider; adjust
     static int grid_size = grid_dim * grid_dim;
     static public Set <String> nodes;
     static public Map <String, String> node2oneFace;
@@ -40,7 +40,7 @@ public class TopologyGenerator {
                 //provider prefixes
                 List <String> prefixes = new ArrayList<>();
                 for(int j=0; j<pro_prefixes; j++){
-                    String newPrefix = "/p"+i+"_"+((char)(j+97))+"/*";
+                    String newPrefix = "/p"+i+"_"+j+"/*";
                     prefixes.add(newPrefix);
                     allPrefixes.add(newPrefix);
                 }
